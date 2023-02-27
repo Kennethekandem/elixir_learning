@@ -50,7 +50,7 @@ defmodule Discuss.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:ueberauth, "~> 0.7"},
-      {:ueberauth_github, "~> 0.8", override: true}
+      {:ueberauth_github, "~> 0.6", override: true}
     ]
   end
 

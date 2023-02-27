@@ -17,6 +17,12 @@ config :discuss, DiscussWeb.Endpoint,
   pubsub_server: Discuss.PubSub,
   live_view: [signing_salt: "eCJJowW4"]
 
+config :ueberauth, Ueberauth,
+  providers: [
+    facebook: { Ueberauth.Strategy.Facebook, [ opt1: "value", opts2: "value" ] },
+    github: { Ueberauth.Strategy.Github, [ opt1: "value", opts2: "value" ] }
+  ]
+
 # Configures the mailer
 #
 # By default it uses the "Local" adapter which stores the emails
