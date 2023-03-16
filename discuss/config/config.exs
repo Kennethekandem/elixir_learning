@@ -17,11 +17,15 @@ config :discuss, DiscussWeb.Endpoint,
   pubsub_server: Discuss.PubSub,
   live_view: [signing_salt: "eCJJowW4"]
 
+# Ueberatuh package is for Oauth using providers like github and facebook
 config :ueberauth, Ueberauth,
   providers: [
-    facebook: { Ueberauth.Strategy.Facebook, [ opt1: "value", opts2: "value" ] },
-    github: { Ueberauth.Strategy.Github, [ opt1: "value", opts2: "value" ] }
+    github: { Ueberauth.Strategy.Github, [] }
   ]
+
+config :ueberauth, Ueberauth.Strategy.Github.Oauth,
+  client_id: System.get_env("GITHUB_CLIENT_ID")
+  client_secret: System.get_env("GITHUB_CLIENT_SECRET")
 
 # Configures the mailer
 #

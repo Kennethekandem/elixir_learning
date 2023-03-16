@@ -8,7 +8,7 @@ defmodule Discuss do
   """
 
   def config([main_key | rest] = keyspace) when is_list(keyspace) do
-    main = Application.fetch_env!(:disgnplus_api, main_key)
+    main = Application.fetch_env!(:discuss, main_key)
 
     Enum.reduce(rest, main, fn next_key, current ->
       case Keyword.fetch(current, next_key) do
