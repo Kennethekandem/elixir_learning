@@ -13,8 +13,12 @@ defmodule DiscussWeb.Plugs.SetUser do
     |> get_session(:user_id)
 
     cond do
-       ->
-        
+      user = user_id && Repo.get(User, user_id) ->
+        conn
+        |> assign(:user, user)
+      true ->
+        conn
+        |> assign(:user, nil)
     end
   end
 end
